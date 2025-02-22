@@ -1,6 +1,6 @@
-// Wait for DOM to load
+// Aguarda o carregamento do DOM
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile navigation toggle
+  // Navegação móvel
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('nav ul');
   
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  // Rolagem suave para links âncora
+  document.querySelectorAll('a[href^="#"]').forEach(ancora => {
+    ancora.addEventListener('click', function(e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
+      const destino = document.querySelector(this.getAttribute('href'));
+      if (destino) {
+        destino.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Lazy loading for images
-  const images = document.querySelectorAll('img[data-src]');
-  const imageObserver = new IntersectionObserver((entries, observer) => {
+  // Carregamento preguiçoso de imagens
+  const imagens = document.querySelectorAll('img[data-src]');
+  const observadorImagem = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
@@ -37,18 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  images.forEach(img => imageObserver.observe(img));
+  imagens.forEach(img => observadorImagem.observe(img));
 
-  // Add animation on scroll
-  const animateOnScroll = new IntersectionObserver((entries) => {
+  // Animação ao rolar
+  const animarAoRolar = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add('visivel');
       }
     });
   });
 
   document.querySelectorAll('.curso').forEach(el => {
-    animateOnScroll.observe(el);
+    animarAoRolar.observe(el);
   });
 });
